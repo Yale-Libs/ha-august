@@ -4,10 +4,6 @@ from pathlib import Path
 from typing import cast
 
 from aiohttp import ClientError
-from yalexs.exceptions import AugustApiAIOHTTPError
-from yalexs.manager.exceptions import CannotConnect, InvalidAuth, RequireValidation
-from yalexs.manager.gateway import Config as YaleXSConfig
-
 from homeassistant.config_entries import ConfigEntry
 from homeassistant.const import EVENT_HOMEASSISTANT_STOP
 from homeassistant.core import HomeAssistant
@@ -16,11 +12,15 @@ from homeassistant.exceptions import (
     ConfigEntryNotReady,
     OAuth2TokenRequestBaseError,
 )
-from homeassistant.helpers import device_registry as dr, issue_registry as ir
+from homeassistant.helpers import device_registry as dr
+from homeassistant.helpers import issue_registry as ir
 from homeassistant.helpers.config_entry_oauth2_flow import (
     OAuth2Session,
     async_get_config_entry_implementation,
 )
+from yalexs.exceptions import AugustApiAIOHTTPError
+from yalexs.manager.exceptions import CannotConnect, InvalidAuth, RequireValidation
+from yalexs.manager.gateway import Config as YaleXSConfig
 
 from .const import DEFAULT_AUGUST_BRAND, DOMAIN, PLATFORMS
 from .data import AugustData
