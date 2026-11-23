@@ -1,8 +1,7 @@
 """Constants for August devices."""
 
-from yalexs.const import Brand
-
 from homeassistant.const import Platform
+from yalexs.const import Brand
 
 DEFAULT_TIMEOUT = 25
 
